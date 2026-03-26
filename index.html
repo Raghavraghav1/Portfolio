@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-<title>M.R/Dev</title>
+<title>MR/Dev</title>
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-<link href="https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700;800&family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;1,9..40,300&display=swap" rel="stylesheet" />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet">
 <script src="https://cdn.tailwindcss.com"></script>
 <script src="https://unpkg.com/react@18/umd/react.development.js"></script>
 <script src="https://unpkg.com/react-dom@18/umd/react-dom.development.js"></script>
@@ -28,10 +28,10 @@
   body {
     background: var(--bg);
     color: #e2e8f0;
-    font-family: 'DM Sans', sans-serif;
+    font-family: 'Inter', sans-serif;
     overflow-x: hidden;
   }
-  h1,h2,h3,h4,h5,h6,.font-display { font-family: 'Syne', sans-serif; }
+  h1,h2,h3,h4,h5,h6,.font-display { font-family: 'Inter', sans-serif; }
 
   .grad-text {
     background: linear-gradient(135deg, #a855f7 0%, #ec4899 50%, #f97316 100%);
@@ -111,6 +111,7 @@
     color: #c084fc;
     letter-spacing: 0.03em;
   }
+
 
   /* Scrollbar */
   ::-webkit-scrollbar { width: 4px; }
@@ -195,7 +196,6 @@
 </style>
 </head>
 <body>
-<div class="noise-overlay"></div>
 <div id="root"></div>
 
 <script type="text/babel">
@@ -203,142 +203,185 @@ const { useState, useEffect, useRef, useCallback } = React;
 const { motion, AnimatePresence, useInView } = window.Motion || window.FramerMotion || { motion: { div: 'div', nav: 'nav', section: 'section', h1: 'h1', p: 'p', span: 'span', button: 'button', a: 'a', ul: 'ul', li: 'li', header: 'header' }, AnimatePresence: ({children}) => children, useInView: () => true };
 
 // ─── DATA ────────────────────────────────────────────────────────────────────
-const PROJECTS = [
- 
+ const PROJECTS = [
   {
     id: 1,
     title: "AI Resume Analyzer",
-    description: "AI-powered resume analyzer using Gemini + LangChain with RAG for smart insights.",
-    tags: ["Python", "Streamlit", "LangChain", "Gemini"],
+    description:
+      "AI-powered resume analyzer built using Streamlit, LangChain, and Google Gemini with Retrieval-Augmented Generation (RAG). Enables users to upload resumes and receive intelligent insights, skill gap analysis, and actionable recommendations.",
+    tags: ["Python", "Streamlit", "LangChain", "Gemini", "RAG"],
     gradient: "linear-gradient(135deg, #a855f7, #ec4899)",
     code: "https://github.com/Raghavraghav1/ResumeAnalayzerAI",
-    demo: "https://auditavengers.up.railway.app/",
   },
   {
     id: 2,
-    title: "Inventory Management System",
-    description: "Web app to manage stock, track items, and generate reports.",
-    tags: ["React", "Node.js", "MongoDB"],
+    title: "RO Spares Inventory Management System",
+    description:
+      "Full-stack inventory management system for tracking RO spare parts with product CRUD operations, search, filtering, and sorting. Built with React frontend and FastAPI backend with PostgreSQL for efficient data handling.",
+    tags: ["React", "FastAPI", "PostgreSQL", "Python", "Full Stack"],
     gradient: "linear-gradient(135deg, #ec4899, #f97316)",
-    code: "#",
+    code: "https://github.com/Raghavraghav1/raghav-traco",
     demo: "#",
   },
   {
     id: 3,
-    title: "Personal Portfolio",
-    description: "A sleek, responsive portfolio built with React and Tailwind CSS.",
-    tags: ["React", "Tailwind CSS", "Framer Motion"],
+    title: "Audit Avengers Audit Management System",
+    description:
+      "Flask-based audit management system with role-based access control, automated workflows, email notifications, and report generation. Deployed using Docker for scalable environments.",
+    tags: ["Python", "Flask", "MySQL", "Docker", "Full Stack"],
     gradient: "linear-gradient(135deg, #f97316, #a855f7)",
-    code: "#",
-    demo: "https://mrdevs.netlify.app/",
-  }
+    code: "https://github.com/Raghavraghav1/auditavengers",
+    demo: "https://auditavengers.up.railway.app/",
+  },
+  {
+    id: 4,
+    title: "Smart Traffic Analytics Dashboard",
+    description:
+      "Data analytics dashboard built using Power BI and Excel to analyze traffic patterns, accidents, and air quality, enabling data-driven urban planning decisions.",
+    tags: ["Power BI", "Excel", "Data Analytics", "Visualization"],
+    gradient: "linear-gradient(135deg, #22c55e, #06b6d4)",
+
+  },
+  {
+    id: 5,
+    title: "Deloitte Dashboard Simulation",
+    description:
+      "Interactive KPI dashboards developed using Excel and Tableau with classification analysis to support business decision-making.",
+    tags: ["Excel", "Tableau", "Data Analysis"],
+    gradient: "linear-gradient(135deg, #6366f1, #8b5cf6)",
+  },
 ];
 
 const EXPERIENCE = [
   {
-    role: "Senior Frontend Engineer",
-    company: "Vercel",
-    period: "2022 — Present",
+    role: "Full-Stack Developer (Frontend & Testing Focus)",
+    company: "Audit Avengers Project",
+    period: "Jan 2025 — Present",
     bullets: [
-      "Led the redesign of the deployment dashboard, reducing time-to-first-action by 40%",
-      "Built and maintained the component library used by 200+ engineers",
-      "Established performance budgets, improving Core Web Vitals scores to 95+",
+      "Led development as Project Head, building responsive UI components and integrating frontend with backend APIs",
+      "Designed and executed functional and unit-level test cases to ensure application reliability and performance",
+      "Automated workflows including audit processes, notifications, and reporting to improve operational efficiency",
+      "Utilized AI-assisted development tools to accelerate development and enhance user experience",
     ],
-    tags: ["React", "Next.js", "TypeScript", "Turborepo"],
-  },
-  {
-    role: "Frontend Developer",
-    company: "Linear",
-    period: "2020 — 2022",
-    bullets: [
-      "Developed real-time collaborative features for the issue tracker (10M+ users)",
-      "Optimised React render cycles, cutting bundle size by 35%",
-      "Shipped the mobile web experience from zero to 100k weekly actives",
-    ],
-    tags: ["React", "GraphQL", "Electron", "CSS Modules"],
-  },
-  {
-    role: "UI Engineer",
-    company: "Loom",
-    period: "2018 — 2020",
-    bullets: [
-      "Built the video recording and playback pipeline for the web extension",
-      "Created the design token system syncing Figma → code",
-    ],
-    tags: ["Vue.js", "WebRTC", "Figma", "SCSS"],
+    tags: ["Python", "Flask", "Frontend", "Testing", "Docker"],
   },
 ];
 
-const EDUCATION = [
+ const EDUCATION = [
   {
-    degree: "B.Sc. Computer Science",
-    school: "UC Berkeley",
-    period: "2014 — 2018",
-    note: "Focus on Human-Computer Interaction & Software Engineering. Dean's List.",
-  },
-  {
-    degree: "Design Systems Certification",
-    school: "Interaction Design Foundation",
-    period: "2020",
-    note: "Advanced course in design systems, accessibility, and component architecture.",
+    degree: "B.Tech in Computer Science (Data Science)",
+    school: "Siddhartha Institute of Engineering & Technology",
+    period: "2022 — 2026",
+    note: "CGPA: 7.5/10 (Ongoing)",
   },
 ];
 
-const SKILLS = [
+ const SKILLS = [
   {
-    category: "Frontend",
+    category: "Programming & Development",
     icon: "⚡",
-    items: ["React / Next.js", "TypeScript", "Tailwind CSS", "Framer Motion", "WebGL / Three.js", "GraphQL Client"],
+    items: [
+      "Python (FastAPI, Flask, SQLAlchemy, Pydantic)",
+      "Java",
+      "C++",
+      "HTML",
+      "CSS",
+    ],
   },
   {
-    category: "Backend & APIs",
-    icon: "🔗",
-    items: ["Node.js / Express", "GraphQL", "REST / tRPC", "PostgreSQL", "Redis", "Prisma ORM"],
+    category: "Databases",
+    icon: "🗄",
+    items: ["MySQL", "PostgreSQL", "RDBMS", "NoSQL"],
   },
   {
-    category: "Tooling & DevOps",
+    category: "Data & Analytics",
+    icon: "📊",
+    items: [
+      "SQL",
+      "EDA",
+      "Regression",
+      "Classification",
+      "Data Visualization",
+      "Power BI",
+      "Tableau",
+      "Excel",
+    ],
+  },
+  {
+    category: "Tools & Technologies",
     icon: "🛠",
-    items: ["Vite / Turbo", "Docker", "CI/CD (GitHub Actions)", "Vercel / AWS", "Playwright Testing", "Storybook"],
+    items: [
+      "Git",
+      "Docker",
+      "Jupyter Notebook",
+      "VS Code",
+      "Google Sheets",
+    ],
   },
   {
-    category: "Design",
-    icon: "✦",
-    items: ["Figma (advanced)", "Design Systems", "Prototyping", "Motion Design", "Typography", "Accessibility (WCAG)"],
+    category: "Cloud",
+    icon: "☁",
+    items: ["AWS", "Microsoft Azure"],
+  },
+  {
+    category: "Testing",
+    icon: "🧪",
+    items: [
+      "Test Case Design",
+      "Bug Reporting",
+      "Regression Testing",
+      "Smoke Testing",
+      "Selenium Basics",
+      "TestNG Basics",
+    ],
   },
 ];
 
 const BLOG_POSTS = [
   {
-    date: "Mar 12, 2024",
-    title: "The Anatomy of a Perfect Component API",
-    description: "What separates a component that lasts from one that gets rewritten in six months? Let's dissect the principles of composable, intuitive component design.",
-    tags: ["React", "Architecture", "Design Systems"],
+    date: "2026",
+    title: "Building AI Resume Analyzers with RAG",
+    description:
+      "How I built an AI-powered resume analyzer using LangChain and Gemini with Retrieval-Augmented Generation to provide intelligent insights.",
+    tags: ["AI", "LangChain", "RAG"],
   },
   {
-    date: "Feb 4, 2024",
-    title: "Stop Writing CSS-in-JS (and What to Do Instead)",
-    description: "A pragmatic look at why CSS-in-JS libraries are losing ground in 2024, and the modern alternatives that outperform them in every metric.",
-    tags: ["CSS", "Performance", "Tooling"],
+    date: "2026",
+    title: "From Dashboard to Decisions: Power BI Case Study",
+    description:
+      "Using Power BI dashboards to uncover insights in traffic and business data for real-world decision-making.",
+    tags: ["Power BI", "Analytics"],
   },
   {
-    date: "Jan 22, 2024",
-    title: "Framer Motion Deep Dive: Orchestrating Complex Animations",
-    description: "From simple fades to stagger sequences and layout animations — a complete guide to building cinematic UIs with Framer Motion.",
-    tags: ["Animation", "React", "Tutorial"],
-  },
-  {
-    date: "Dec 15, 2023",
-    title: "Why I Switched From Next.js to Remix (and Back)",
-    description: "An honest account of migrating a production app twice, what I learned about mental models, loaders, and the future of full-stack React.",
-    tags: ["Next.js", "Remix", "Full-Stack"],
+    date: "2026",
+    title: "Full-Stack Development with FastAPI and React",
+    description:
+      "Designing scalable full-stack applications with modern backend and frontend frameworks.",
+    tags: ["FastAPI", "React"],
   },
 ];
 
 const GALLERY_ITEMS = [
-  { title: "Building Interfaces", emoji: "🖥", desc: "Pixel-perfect UIs that feel alive" },
-  { title: "Open Source", emoji: "🌱", desc: "Contributing back to the community" },
-  { title: "Late Night Coding", emoji: "🌙", desc: "When the best ideas arrive" },
-  { title: "Design to Code", emoji: "🎨", desc: "Bridging design and engineering" },
+  {
+    title: "AI Development",
+    emoji: "🤖",
+    desc: "Building intelligent applications using modern AI tools",
+  },
+  {
+    title: "Data Analytics",
+    emoji: "📊",
+    desc: "Transforming data into actionable insights",
+  },
+  {
+    title: "Full Stack Systems",
+    emoji: "💻",
+    desc: "Developing scalable end-to-end applications",
+  },
+  {
+    title: "Problem Solving",
+    emoji: "🧠",
+    desc: "Analytical thinking and structured debugging",
+  },
 ];
 
 // ─── UTILS ───────────────────────────────────────────────────────────────────
@@ -403,9 +446,9 @@ function Navbar({ page, setPage }) {
         {/* Logo */}
         <button onClick={() => go("Home")} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
           <span style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 18, letterSpacing: '-0.02em' }}>
-            <span className="grad-text">M.R</span>
+            <span className="grad-text">MR</span>
             <span style={{ color: 'rgba(226,232,240,0.4)', margin: '0 6px' }}>/</span>
-            <span style={{ color: 'rgba(226,232,240,0.7)', fontWeight: 500 }}>dev</span>
+            <span style={{ color: 'rgba(226,232,240,0.7)', fontWeight: 500 }}>Dev</span>
           </span>
         </button>
 
@@ -472,12 +515,22 @@ function HomePage({ setPage }) {
   return (
     <div>
       {/* Hero */}
-      <section style={{ minHeight: '100vh', display: 'flex', alignItems: 'center', justifyContent: 'center', position: 'relative', overflow: 'hidden', padding: '80px clamp(1rem, 5vw, 3rem) 60px' }}>
+      <section
+        style={{
+          minHeight: '100vh',
+          display: 'flex',
+          alignItems: 'center',
+          justifyContent: 'flex-start', // ✅ FIX
+          position: 'relative',
+          overflow: 'hidden',
+          padding: '80px 6vw', // ✅ Apple spacing
+        }}
+      >
         {/* Mesh blobs */}
-        <div className="mesh-bg" style={{ width: 500, height: 500, background: 'radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)', top: '10%', left: '5%' }} />
+       <div className="mesh-bg" style={{ width: 500, height: 500, background: 'radial-gradient(circle, rgba(168,85,247,0.15) 0%, transparent 70%)', top: '10%', left: '5%' }} />
         <div className="mesh-bg" style={{ width: 400, height: 400, background: 'radial-gradient(circle, rgba(236,72,153,0.1) 0%, transparent 70%)', bottom: '10%', right: '10%' }} />
 
-        {/* Floating tags */}
+        {/* Floating tags (background) */}
         {techTags.map((tag, i) => (
           <div key={tag} className={floatClasses[i]} style={{ position: 'absolute', ...tagPositions[i], zIndex: 2, display: 'none' }} id={`tag-${i}`}>
             <span className="tag" style={{ fontSize: 12, padding: '5px 14px', opacity: 0.7 }}>{tag}</span>
@@ -485,43 +538,118 @@ function HomePage({ setPage }) {
         ))}
 
         {/* Hero content */}
-        <div style={{ maxWidth: 800, textAlign: 'center', position: 'relative', zIndex: 3 }}>
-          <div style={{ display: 'flex', alignItems: 'center', justifyContent: 'center', gap: 8, marginBottom: 24 }}>
+        <div
+          style={{
+            maxWidth: 700, // ✅ tighter
+            textAlign: 'left', // ✅ FIX
+            position: 'relative',
+            zIndex: 3,
+          }}
+        >
+          {/* Availability */}
+          <div
+            style={{
+              display: 'flex',
+              alignItems: 'center',
+              gap: 8, // ❌ removed center
+              marginBottom: 24,
+            }}
+          >
             <div className="glow-dot" />
-            <span style={{ fontSize: 13, color: 'rgba(192,132,252,0.8)', letterSpacing: '0.12em', textTransform: 'uppercase', fontWeight: 500 }}>
+            <span
+              style={{
+                fontSize: 13,
+                color: 'rgba(192,132,252,0.8)',
+                letterSpacing: '0.12em',
+                textTransform: 'uppercase',
+                fontWeight: 500,
+              }}
+            >
               Available for work
             </span>
           </div>
 
-          <h1 style={{
-            fontFamily: 'Syne', fontWeight: 800,
-            fontSize: 'clamp(52px, 10vw, 96px)',
-            lineHeight: 1.0,
-            letterSpacing: '-0.03em',
-            marginBottom: 24,
-          }}>
-            <span className="grad-text">Raghav</span>
+          {/* Heading */}
+          <h1
+            style={{
+              fontFamily: 'Inter',
+              fontWeight: 800,
+              fontSize: 'clamp(32px, 5vw, 52px)',
+              lineHeight: 1.05,
+              letterSpacing: '-0.04em',
+              marginBottom: 24,
+            }}
+          >
+            <span className="grad-text">Raghavedhar</span>
             <br />
             <span style={{ color: '#e2e8f0' }}>Mailapuram</span>
           </h1>
 
-          <p style={{ fontSize: 'clamp(16px, 2.5vw, 20px)', color: 'rgba(226,232,240,0.6)', fontWeight: 300, marginBottom: 40, maxWidth: 520, margin: '0 auto 40px', lineHeight: 1.6 }}>
-            Full Stack Developer & UI Craftsperson. I build <em style={{ color: '#c084fc', fontStyle: 'italic' }}>beautiful, fast, accessible</em> web experiences that people actually enjoy using.
+          {/* Description */}
+          <p
+            style={{
+              fontSize: 'clamp(16px, 2.5vw, 20px)',
+              color: 'rgba(226,232,240,0.6)',
+              fontWeight: 300,
+              marginBottom: 40, // ✅ removed auto center
+              maxWidth: 520,
+              lineHeight: 1.6,
+            }}
+          >
+            Full Stack Developer & UI Craftsperson. I build{' '}
+            <em style={{ color: '#c084fc', fontStyle: 'italic' }}>
+              beautiful, fast, accessible
+            </em>{' '}
+            web experiences that people actually enjoy using.
           </p>
 
-          <div style={{ display: 'flex', gap: 16, justifyContent: 'center', flexWrap: 'wrap', marginBottom: 60 }}>
-            <button onClick={() => { setPage("Projects"); window.scrollTo(0,0); }} className="btn-grad"
-              style={{ padding: '13px 28px', borderRadius: 999, fontSize: 15, fontWeight: 600, fontFamily: 'Syne', letterSpacing: '0.01em' }}>
+          {/* Buttons */}
+          <div
+            style={{
+              display: 'flex',
+              gap: 16,
+              flexWrap: 'wrap',
+              marginBottom: 60,
+            }}
+          >
+            <button
+              onClick={() => {
+                setPage("Projects");
+                window.scrollTo(0, 0);
+              }}
+              className="btn-grad"
+              style={{
+                padding: '13px 28px',
+                borderRadius: 999,
+                fontSize: 15,
+                fontWeight: 600,
+                fontFamily: 'Inter',
+                letterSpacing: '0.01em',
+              }}
+            >
               <span>View My Work →</span>
             </button>
-            <button onClick={() => { setPage("Contact"); window.scrollTo(0,0); }} className="btn-outline"
-              style={{ padding: '13px 28px', borderRadius: 999, fontSize: 15, fontWeight: 500, fontFamily: 'Syne' }}>
+
+            <button
+              onClick={() => {
+                setPage("Contact");
+                window.scrollTo(0, 0);
+              }}
+              className="btn-outline"
+              style={{
+                padding: '13px 28px',
+                borderRadius: 999,
+                fontSize: 15,
+                fontWeight: 500,
+                fontFamily: 'Inter',
+              }}
+            >
               Get in Touch
             </button>
           </div>
 
           {/* Floating tags visible below on mobile/desktop */}
-          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'center' }}>
+          <div style={{ display: 'flex', flexWrap: 'wrap', gap: 10, justifyContent: 'flex-start' }}>
             {techTags.map((tag, i) => (
               <span key={tag} className={`tag float-${['a','b','c','b','a','c'][i]}`} style={{ fontSize: 13, padding: '6px 16px', animationDelay: `${i * 0.4}s` }}>
                 {tag}
@@ -530,13 +658,14 @@ function HomePage({ setPage }) {
           </div>
         </div>
 
-        {/* Decorative ring */}
+  {/* Decorative ring */}
         <div style={{ position: 'absolute', bottom: 40, left: '50%', transform: 'translateX(-50%)' }}>
           <div style={{ width: 1, height: 60, background: 'linear-gradient(to bottom, rgba(168,85,247,0.5), transparent)', margin: '0 auto' }} />
         </div>
       </section>
 
-      {/* Featured Projects */}
+
+{/* Featured Projects */}
       <section style={{ padding: 'clamp(60px, 8vw, 100px) clamp(1rem, 5vw, 3rem)' }}>
         <div style={{ maxWidth: 1100, margin: '0 auto' }}>
           <FadeIn>
@@ -549,13 +678,14 @@ function HomePage({ setPage }) {
           </FadeIn>
 
           <div style={{ display: 'grid', gridTemplateColumns: 'repeat(auto-fit, minmax(min(100%, 480px), 1fr))', gap: 24 }}>
-            {PROJECTS.slice(0, 2).map((p, i) => (
+            {PROJECTS.slice(2, 4).map((p, i) => (
               <FadeIn key={p.id} delay={i * 0.15}>
                 <ProjectCard project={p} />
               </FadeIn>
             ))}
           </div>
         </div>
+        
       </section>
 
       {/* CTA */}
@@ -588,34 +718,127 @@ function HomePage({ setPage }) {
 
 function ProjectCard({ project, large = false }) {
   return (
-    <div className="glass glass-hover" style={{ borderRadius: 20, overflow: 'hidden' }}>
-      {/* Preview */}
-      <div style={{ height: large ? 260 : 200, background: project.gradient, position: 'relative', display: 'flex', alignItems: 'center', justifyContent: 'center' }}>
-        <div style={{ position: 'absolute', inset: 0, background: 'rgba(0,0,0,0.2)' }} />
-        <span style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 20, color: 'rgba(255,255,255,0.9)', letterSpacing: '-0.01em', position: 'relative' }}>
-          {project.title[0]}{project.title.split(' ')[1]?.[0] || ''}
+    <div
+  className="glass glass-hover"
+  style={{
+    borderRadius: 24,
+    overflow: 'hidden',
+    transition: 'all 0.4s ease',
+    cursor: 'pointer',
+  }}
+>
+  {/* Preview */}
+  <div
+  style={{
+    height: large ? 260 : 200,
+    position: 'relative',
+    overflow: 'hidden',
+  }}
+>
+  <img
+    src={`https://image.thum.io/get/width/800/crop/600/${project.demo}`}
+    alt={project.title}
+    style={{
+      width: '100%',
+      height: '100%',
+      objectFit: 'cover',
+      transition: 'transform 0.6s ease',
+    }}
+    className="project-preview"
+  />
+
+  {/* Overlay */}
+  <div
+    style={{
+      position: 'absolute',
+      inset: 0,
+      background: 'linear-gradient(to top, rgba(0,0,0,0.5), transparent)',
+    }}
+  />
+</div>
+
+  {/* Content */}
+  <div style={{ padding: 24 }}>
+    <h3
+      style={{
+        fontFamily: 'Inter', // ✅ FIX
+        fontSize: 20,
+        fontWeight: 600,
+        letterSpacing: '-0.02em',
+        marginBottom: 10,
+      }}
+    >
+      {project.title}
+    </h3>
+
+    <p
+      style={{
+        color: 'rgba(226,232,240,0.6)',
+        fontSize: 14,
+        lineHeight: 1.7,
+        marginBottom: 18,
+        maxWidth: 280,
+      }}
+    >
+      {project.description}
+    </p>
+
+    {/* Tags */}
+    <div
+      style={{
+        display: 'flex',
+        flexWrap: 'wrap',
+        gap: 6,
+        marginBottom: 20,
+      }}
+    >
+      {project.tags.map((t) => (
+        <span key={t} className="tag">
+          {t}
         </span>
-      </div>
-      {/* Content */}
-      <div style={{ padding: 24 }}>
-        <h3 style={{ fontFamily: 'Syne', fontSize: 20, fontWeight: 700, letterSpacing: '-0.01em', marginBottom: 10 }}>{project.title}</h3>
-        <p style={{ color: 'rgba(226,232,240,0.55)', fontSize: 14, lineHeight: 1.7, marginBottom: 18 }}>{project.description}</p>
-        <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6, marginBottom: 20 }}>
-          {project.tags.map(t => <span key={t} className="tag">{t}</span>)}
-        </div>
-        <div style={{ display: 'flex', gap: 10 }}>
-          <a href={project.code} className="btn-outline" style={{ padding: '8px 18px', borderRadius: 999, fontSize: 13, fontWeight: 500, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-            ⌥ Code
-          </a>
-          <a href={project.demo} className="btn-grad" style={{ padding: '8px 18px', borderRadius: 999, fontSize: 13, fontWeight: 500, textDecoration: 'none', display: 'inline-flex', alignItems: 'center', gap: 6 }}>
-            <span>↗ Live Demo</span>
-          </a>
-        </div>
-      </div>
+      ))}
     </div>
+
+    {/* Buttons */}
+    <div style={{ display: 'flex', gap: 10 }}>
+      <a
+        href={project.code}
+        className="btn-outline"
+        style={{
+          padding: '8px 18px',
+          borderRadius: 999,
+          fontSize: 13,
+          fontWeight: 500,
+          textDecoration: 'none',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 6,
+        }}
+      >
+        ⌥ Code
+      </a>
+
+      <a
+        href={project.demo}
+        className="btn-grad"
+        style={{
+          padding: '8px 18px',
+          borderRadius: 999,
+          fontSize: 13,
+          fontWeight: 500,
+          textDecoration: 'none',
+          display: 'inline-flex',
+          alignItems: 'center',
+          gap: 6,
+        }}
+      >
+        <span>↗ Live Demo</span>
+      </a>
+    </div>
+  </div>
+</div>
   );
 }
-
 // ─── ABOUT PAGE ───────────────────────────────────────────────────────────────
 function AboutPage({ setPage }) {
   return (
@@ -634,7 +857,7 @@ function AboutPage({ setPage }) {
                   at a time.
                 </h1>
                 <p style={{ color: 'rgba(226,232,240,0.6)', lineHeight: 1.8, fontSize: 16, marginBottom: 16 }}>
-                  I'm a frontend developer with 6+ years of experience building products used by millions. I obsess over the details — the 200ms interaction that feels snappy, the animation that makes a feature click, the API that makes a colleague's day easier.
+                  I'm a frontend developer with 3+ years of experience building products used by millions. I obsess over the details — the 200ms interaction that feels snappy, the animation that makes a feature click, the API that makes a colleague's day easier.
                 </p>
                 <p style={{ color: 'rgba(226,232,240,0.6)', lineHeight: 1.8, fontSize: 16, marginBottom: 32 }}>
                   Previously at Vercel, Linear, and Loom. Currently open to new opportunities and freelance projects.
@@ -662,11 +885,11 @@ function AboutPage({ setPage }) {
                   }}>
                     <div style={{ position: 'absolute', inset: 0, display: 'flex', flexDirection: 'column', alignItems: 'center', justifyContent: 'center', gap: 8 }}>
                       <div style={{ width: 80, height: 80, borderRadius: '50%', background: 'linear-gradient(135deg, #a855f7, #ec4899)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontSize: 32, fontFamily: 'Syne', fontWeight: 800, color: 'white' }}>AR</div>
-                      <span style={{ color: 'rgba(226,232,240,0.4)', fontSize: 13 }}>Alex Rivera</span>
+                      <span style={{ color: 'rgba(226,232,240,0.4)', fontSize: 13 }}>Raghavendhar Mailapuram</span>
                     </div>
                     {/* Decorative elements */}
                     <div style={{ position: 'absolute', top: 20, right: 20 }}>
-                      <span className="tag" style={{ fontSize: 11 }}>San Francisco, CA</span>
+                      <span className="tag" style={{ fontSize: 11 }}>Hyderabad, India</span>
                     </div>
                     <div style={{ position: 'absolute', bottom: 20, left: 20 }}>
                       <div style={{ display: 'flex', alignItems: 'center', gap: 8 }}>
@@ -830,8 +1053,8 @@ function ResumePage() {
               <div style={{ display: 'flex', alignItems: 'center', gap: 20, flexWrap: 'wrap' }}>
                 <div style={{ width: 64, height: 64, borderRadius: '50%', background: 'linear-gradient(135deg, #a855f7, #ec4899)', display: 'flex', alignItems: 'center', justifyContent: 'center', fontFamily: 'Syne', fontWeight: 800, fontSize: 18, color: 'white', flexShrink: 0 }}>AR</div>
                 <div>
-                  <h2 style={{ fontFamily: 'Syne', fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em' }}>Alex Rivera</h2>
-                  <p style={{ color: 'rgba(226,232,240,0.5)', fontSize: 14 }}>Frontend Developer · San Francisco, CA · alex@example.com</p>
+                  <h2 style={{ fontFamily: 'Syne', fontSize: 22, fontWeight: 800, letterSpacing: '-0.01em' }}>Raghavendhar Mailapuram</h2>
+                  <p style={{ color: 'rgba(226,232,240,0.5)', fontSize: 14 }}>Full-Stack Developer. Hyderabad, India . raghavendhargpth@gmail.com</p>
                 </div>
                 <div style={{ marginLeft: 'auto' }}>
                   <button className="btn-grad" style={{ padding: '9px 20px', borderRadius: 999, fontSize: 13, fontWeight: 600, fontFamily: 'Syne' }}><span>↓ Download PDF</span></button>
@@ -936,7 +1159,6 @@ function BlogPage() {
                     <div style={{ display: 'flex', flexWrap: 'wrap', gap: 6 }}>
                       {post.tags.map(t => <span key={t} className="tag">{t}</span>)}
                     </div>
-                    <span style={{ color: '#c084fc', fontSize: 13, fontWeight: 500 }}>Read more →</span>
                   </div>
                 </div>
               </FadeIn>
@@ -954,10 +1176,9 @@ function ContactPage() {
   const [sent, setSent] = useState(false);
 
   const socials = [
-    { name: 'GitHub', handle: '@alexrivera', icon: '⌥', href: '#', color: '#e2e8f0' },
-    { name: 'LinkedIn', handle: 'in/alexrivera', icon: '◈', href: '#', color: '#0ea5e9' },
-    { name: 'Twitter / X', handle: '@alexrdev', icon: '◆', href: '#', color: '#1d9bf0' },
-    { name: 'Email', handle: 'alex@example.com', icon: '✉', href: 'mailto:alex@example.com', color: '#ec4899' },
+    { name: 'GitHub', handle: '@Raghavraghav1', icon: '⌥', href: 'https://github.com/Raghavraghav1', color: '#e2e8f0' },
+    { name: 'LinkedIn', handle: 'in/raghavendhar', icon: 'in', href: 'https://www.linkedin.com/in/m-raghavendhar-9988522a0/', color: '#0ea5e9' },
+    { name: 'Email', handle: 'raghavendhargpth@gmail.com', icon: '✉', href: 'mailto:raghavendhargpth@gmail.com', color: '#ec4899' },
   ];
 
   const handleSubmit = (e) => {
@@ -1004,55 +1225,50 @@ function ContactPage() {
               </div>
             </FadeIn>
 
-            {/* Right: Form */}
             <FadeIn delay={0.1}>
-              <div className="glass" style={{ borderRadius: 20, padding: 32 }}>
-                {sent ? (
-                  <div style={{ textAlign: 'center', padding: '40px 0' }}>
-                    <div style={{ fontSize: 48, marginBottom: 16 }}>✦</div>
-                    <h3 style={{ fontFamily: 'Syne', fontSize: 22, fontWeight: 700, marginBottom: 10 }}>Message sent!</h3>
-                    <p style={{ color: 'rgba(226,232,240,0.5)' }}>I'll get back to you within 24 hours.</p>
-                  </div>
-                ) : (
-                  <form onSubmit={handleSubmit} style={{ display: 'flex', flexDirection: 'column', gap: 16 }}>
-                    <div style={{ display: 'grid', gridTemplateColumns: '1fr 1fr', gap: 12 }}>
-                      <div>
-                        <label style={{ fontSize: 12, color: 'rgba(226,232,240,0.45)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Name</label>
-                        <input
-                          value={form.name} onChange={e => setForm(f => ({ ...f, name: e.target.value }))}
-                          placeholder="Alex Rivera" required
-                          style={{ width: '100%', padding: '11px 14px', borderRadius: 10, fontSize: 14 }} />
-                      </div>
-                      <div>
-                        <label style={{ fontSize: 12, color: 'rgba(226,232,240,0.45)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Email</label>
-                        <input
-                          type="email" value={form.email} onChange={e => setForm(f => ({ ...f, email: e.target.value }))}
-                          placeholder="you@example.com" required
-                          style={{ width: '100%', padding: '11px 14px', borderRadius: 10, fontSize: 14 }} />
-                      </div>
-                    </div>
-                    <div>
-                      <label style={{ fontSize: 12, color: 'rgba(226,232,240,0.45)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Subject</label>
-                      <input
-                        value={form.subject} onChange={e => setForm(f => ({ ...f, subject: e.target.value }))}
-                        placeholder="Project inquiry" required
-                        style={{ width: '100%', padding: '11px 14px', borderRadius: 10, fontSize: 14 }} />
-                    </div>
-                    <div>
-                      <label style={{ fontSize: 12, color: 'rgba(226,232,240,0.45)', letterSpacing: '0.08em', textTransform: 'uppercase', display: 'block', marginBottom: 6 }}>Message</label>
-                      <textarea
-                        value={form.message} onChange={e => setForm(f => ({ ...f, message: e.target.value }))}
-                        placeholder="Tell me about your project..." required rows={5}
-                        style={{ width: '100%', padding: '11px 14px', borderRadius: 10, fontSize: 14, resize: 'vertical', minHeight: 120 }} />
-                    </div>
-                    <button type="submit" className="btn-grad pulse-glow"
-                      style={{ padding: '13px', borderRadius: 12, fontSize: 15, fontWeight: 600, fontFamily: 'Syne', width: '100%', marginTop: 4 }}>
-                      <span>Send Message ✦</span>
-                    </button>
-                  </form>
-                )}
-              </div>
-            </FadeIn>
+  <div
+    className="glass"
+    style={{
+      borderRadius: 20,
+      padding: 32,
+      display: 'flex',
+      flexDirection: 'column',
+      justifyContent: 'center',
+      alignItems: 'flex-start',
+      gap: 20,
+    }}
+  >
+    <h3
+      style={{
+        fontFamily: 'Inter',
+        fontSize: 22,
+        fontWeight: 600,
+        letterSpacing: '-0.02em',
+      }}
+    >
+      Let’s build something great ✨
+    </h3>
+
+    <p style={{ color: 'rgba(226,232,240,0.6)', maxWidth: 400 }}>
+      I’m always open to discussing new projects, opportunities, or collaborations.
+      Reach out through any platform and I’ll get back to you quickly.
+    </p>
+
+    <a
+      href="mailto:raghavendhargpth@gmail.com"
+      className="btn-grad"
+      style={{
+        padding: '12px 24px',
+        borderRadius: 999,
+        fontSize: 14,
+        fontWeight: 600,
+        textDecoration: 'none',
+      }}
+    >
+      Send Email →
+    </a>
+  </div>
+</FadeIn>
           </div>
         </div>
       </section>
@@ -1067,7 +1283,7 @@ function Footer({ setPage }) {
       <div style={{ maxWidth: 1100, margin: '0 auto', display: 'flex', justifyContent: 'space-between', alignItems: 'center', flexWrap: 'wrap', gap: 20 }}>
         <button onClick={() => { setPage("Home"); window.scrollTo(0,0); }} style={{ background: 'none', border: 'none', cursor: 'pointer' }}>
           <span style={{ fontFamily: 'Syne', fontWeight: 800, fontSize: 16 }}>
-            <span className="grad-text">AR</span>
+            <span className="grad-text">MR</span>
             <span style={{ color: 'rgba(226,232,240,0.3)', margin: '0 6px' }}>/</span>
             <span style={{ color: 'rgba(226,232,240,0.5)', fontWeight: 500 }}>dev</span>
           </span>
